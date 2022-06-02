@@ -10,7 +10,12 @@
     <color name="light_blue">#FF78c8e6</color>
     <color name="gray">#FFCCCCCC</color>
     <color name="light_gray">#FFE5E5E5</color>
-    <color name="colorPrimary">#b7a001</color>
     <color name="item_color">#fac8bf</color>
+    <color name="divider">#e1e1e1</color>
+    <color name="transparent">#00000000</color>
+    <color name="background">#EAEAEA</color>
+    <color name="colorPrimary">#3d3b3c</color>
+    <color name="colorPrimaryDark">#373334</color>
+    <color name="colorAccent">#b7b7b7</color>
 
 </resources>
