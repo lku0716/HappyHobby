@@ -1,41 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#00FFFFFF"
-    android:backgroundTint="#00D81818"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/FirstLine"
-        android:layout_width="match_parent"
-        android:layout_height="30dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
+    <Button
+        android:id="@+id/button_load"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="33dp"
+        android:layout_marginBottom="13dp"
         android:fontFamily="@font/dx"
-        android:text="취미의 향수"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
-
-    <ListView
-        android:id="@+id/DiaryList"
-        android:layout_width="match_parent"
-        android:layout_height="567dp" />
+        android:text="메모 로드"
+        app:layout_constraintBottom_toTopOf="@+id/editText3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
-        android:id="@+id/Write"
-        android:layout_width="100dp"
+        android:id="@+id/button_save"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:background="#FFFFFF"
-        android:backgroundTint="#FFFFFF"
+        android:layout_marginTop="33dp"
         android:fontFamily="@font/dx"
-        android:text="작성"
-        android:textColor="@color/black"
-        android:textSize="18sp" />
+        android:text="메모 저장"
+        app:layout_constraintStart_toEndOf="@+id/button_load"
+        app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/editText3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:ems="10"
+        android:fontFamily="@font/dx"
+        android:gravity="top"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button_load" />
 
-</LinearLayout>
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/dx"
+        android:text="메모 삭제"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_save"
+        app:layout_constraintStart_toEndOf="@+id/button_save" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
