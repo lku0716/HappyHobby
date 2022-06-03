@@ -4,22 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
-    <TextView
+    <ImageView
+        android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="10dp"
-        android:fontFamily="@font/dx"
-        android:text="자신의 취미를 작성해봐요"
-        android:textAlignment="center"
-        android:textColor="@color/black"
-        android:textSize="20sp" />
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/happyhobby"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <EditText
         android:id="@+id/editText3"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="413dp"
+        android:layout_height="422dp"
         android:ems="10"
         android:fontFamily="@font/dx"
         android:gravity="top"
@@ -30,22 +29,11 @@
         app:layout_constraintTop_toBottomOf="@+id/button_load" />
 
     <Button
-        android:id="@+id/button_delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="12dp"
-        android:fontFamily="@font/dx"
-        android:gravity="center"
-        android:text="메모 삭제"
-        app:layout_constraintBaseline_toBaselineOf="@+id/button_save"
-        app:layout_constraintStart_toEndOf="@+id/button_save" />
-
-    <Button
         android:id="@+id/button_load"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginTop="104dp"
         android:layout_marginBottom="13dp"
         android:fontFamily="@font/dx"
         android:gravity="center"
@@ -60,11 +48,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="128dp"
         android:fontFamily="@font/dx"
         android:gravity="center"
         android:text="메모 저장"
         app:layout_constraintStart_toEndOf="@+id/button_load"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="12dp"
+        android:fontFamily="@font/dx"
+        android:gravity="center"
+        android:text="메모 삭제"
+        app:layout_constraintBaseline_toBaselineOf="@+id/button_save"
+        app:layout_constraintStart_toEndOf="@+id/button_save" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
