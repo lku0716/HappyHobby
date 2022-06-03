@@ -12,13 +12,12 @@
         android:roundIcon="@drawable/logo"
         android:supportsRtl="true"
         android:theme="@style/Theme.HappyHobby">
-        <activity
-            android:name=".EnterPasswordActivity"
-            android:exported="false" />
-        <activity
-            android:name=".CreatePasswordActivity"
-            android:exported="false" />
+        <activity android:name=".EnterPasswordActivity" />
+
+        <activity android:name=".CreatePasswordActivity" />
+
         <activity android:name=".MainActivity" />
+
         <activity
             android:name=".SplashActivity"
             android:exported="true">

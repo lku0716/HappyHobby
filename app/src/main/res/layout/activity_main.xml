@@ -37,7 +37,7 @@
         android:layout_marginBottom="13dp"
         android:fontFamily="@font/dx"
         android:gravity="center"
-        android:text="메모 로드"
+        android:text="@string/memo_road"
         app:layout_constraintBottom_toTopOf="@+id/editText3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -51,7 +51,7 @@
         android:layout_marginTop="128dp"
         android:fontFamily="@font/dx"
         android:gravity="center"
-        android:text="메모 저장"
+        android:text="@string/memo_save"
         app:layout_constraintStart_toEndOf="@+id/button_load"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -62,7 +62,7 @@
         android:layout_marginStart="12dp"
         android:fontFamily="@font/dx"
         android:gravity="center"
-        android:text="메모 삭제"
+        android:text="@string/memo_delete"
         app:layout_constraintBaseline_toBaselineOf="@+id/button_save"
         app:layout_constraintStart_toEndOf="@+id/button_save" />
 
