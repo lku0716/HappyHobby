@@ -7,3 +7,5 @@
 - [Android Studio](https://developer.android.com/studio/install?hl=ko)
 - [JavaScript](https://ko.wikipedia.org/wiki/%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8)
 - [mysql](https://www.mysql.com/)
+
+<img width="20%" alt="App Logo" src="https://user-images.githubusercontent.com/80276556/171803968-3bea86c8-2920-42af-820c-d718d77586b4.png">
