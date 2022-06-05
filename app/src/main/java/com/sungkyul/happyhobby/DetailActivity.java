@@ -1,8 +1,12 @@
 package com.sungkyul.happyhobby;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -30,6 +34,8 @@ public class DetailActivity extends AppCompatActivity {
     private String title;
     private String des;
 
+    private final int GET_GALLERY_IMAGE = 200;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -38,6 +44,11 @@ public class DetailActivity extends AppCompatActivity {
 
         initialized();
 
+        // activity_save_memo에 있는 사진 가져오기기
+//       LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View view = View.inflate(this,R.layout.activity_save_memo,null);
+
+        detailImage = findViewById(R.id.image);
 
         // 수정
         update.setOnClickListener(v -> {
@@ -59,7 +70,7 @@ public class DetailActivity extends AppCompatActivity {
         update = findViewById(R.id.update);
         exit = findViewById(R.id.exit);
         detailTitle = findViewById(R.id.detailTitle);
-        detailImage = findViewById(R.id.detailImage);
+//        detailImage = findViewById(R.id.image);
         detailDes = findViewById(R.id.detailDes);
         db = AppDatabase.getInstance(this);
 
