@@ -17,8 +17,8 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class LoginActivity extends AppCompatActivity {
-    private EditText login_email, login_password;
-    private Button login_button, join_button;
+    EditText login_email, login_password;
+    Button login_button, join_button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
