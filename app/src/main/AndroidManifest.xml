@@ -14,18 +14,29 @@
         android:theme="@style/Theme.HappyHobby">
 
 
-        <activity android:name=".DetailActivity" />
-        <activity android:name=".EnterPasswordActivity" />
-        <activity android:name=".CreatePasswordActivity" />
-        <activity android:name=".MainActivity" />
+        <activity
+            android:name=".DetailActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".EnterPasswordActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity
+            android:name=".CreatePasswordActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".SaveMemoActivity"/>
+        <activity android:name=".SaveMemoActivity" />
 
 
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/Theme.AppCompat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

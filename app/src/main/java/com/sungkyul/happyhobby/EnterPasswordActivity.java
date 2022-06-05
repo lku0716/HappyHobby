@@ -35,7 +35,7 @@ public class EnterPasswordActivity extends AppCompatActivity {
 
                 if (text.equals(password)) {
                     //enter the app
-                    Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
+                    Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                     startActivity(intent);
                     finish();
                 } else {
