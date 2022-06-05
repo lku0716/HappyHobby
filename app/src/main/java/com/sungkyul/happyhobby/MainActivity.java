@@ -1,118 +1,68 @@
 package com.sungkyul.happyhobby;
 
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.Toast;
-
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import android.content.Intent;
+import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.sungkyul.happyhobby.Recycler.RecyclerAdapter;
+import com.sungkyul.happyhobby.Room.AppDatabase;
+import com.sungkyul.happyhobby.Room.User;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private final int SAVE_MEMO_ACTIVITY = 1;
+    private FloatingActionButton add;
 
-    private Button btn_Save;
-    private Button btn_Load;
-    private Button btn_Delete;
-    //에디트 박스 객체
-    private EditText editText_TextArea;
-    //메모를 저장할 파일명 (파일 하나만 지원)
-    private String fileName = "MyMemo.txt";
-    //백버튼 누른 시간 저장
-    private long backPressTime = 0;
-
+    //리사이클러 뷰
+    private RecyclerView recyclerView;
+    private LinearLayoutManager linearLayoutManager;
+    private RecyclerAdapter adapter;
+    private List<User> users;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main1);
 
-        //버튼, 에디트박스 객체 가져오기
-        btn_Save = findViewById(R.id.button_save);
-        btn_Load = findViewById(R.id.button_load);
-        btn_Delete = findViewById(R.id.button_delete);
-        editText_TextArea = findViewById(R.id.editText3);
+        initialized();
 
-        //버튼 객체에 클릭 리스너 함수 등록
-        btn_Save.setOnClickListener(btnSaveListener);
-        btn_Load.setOnClickListener(btnLoadListener);
-        btn_Delete.setOnClickListener(btnDeleteListener);
+        recyclerView.setLayoutManager(linearLayoutManager);
+        recyclerView.setAdapter(adapter);
+
+
+        add.setOnClickListener(v -> {
+            move();
+        });
     }
 
-    //파일 로드 버튼 클릭처리
-    View.OnClickListener btnLoadListener = new View.OnClickListener() {
-        //새로 생성할 리스너에 할당할 onClick 함수 구현
-        public void onClick(View v) {
-            //Toast.makeText(getApplicationContext(), "로드 버튼 클릭 테스트", Toast.LENGTH_LONG).show();
-            //파일 로드 시 이용할 파일 입력 스트림
-            FileInputStream inputStream = null;
 
-            try {
-                inputStream = openFileInput(fileName);
-                //바이트 단위로 스트림 데이터를 읽음
-                byte[] data = new byte[inputStream.available()];
-                while (inputStream.read(data) != -1) {
-                }
+    private void initialized() {
+        add = findViewById(R.id.addMemo);
 
-                //현재 에디트 박스에 읽은 바이트 데이터를 세팅
-                editText_TextArea.setText(new String(data));
-                //화면 아래 간단한 알림 메시지 출력
-                Toast.makeText(getApplicationContext(), "로드 성공", Toast.LENGTH_LONG).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                try {
-                    //파일 읽기 성공 여부 상관없이 반드시 스트림 닫기
-                    if (inputStream != null)
-                        inputStream.close();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
+        recyclerView = findViewById(R.id.mainRecyclerView);
+        linearLayoutManager = new LinearLayoutManager(this);
+        adapter = new RecyclerAdapter();
+
+        users = AppDatabase.getInstance(this).userDao().getAll();
+        int size = users.size();
+        for(int i = 0; i < size; i++){
+            adapter.addItem(users.get(i));
         }
-    };
+    }
 
-    //파일 저장 버튼 클릭처리
-    View.OnClickListener btnSaveListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            //Toast.makeText(getApplicationContext(), "저장 버튼 클릭 테스트", Toast.LENGTH_LONG).show();
-            //파일 저장 시 이용할 파일 출력 스트림
-            FileOutputStream outputStream = null;
+    private void move() {
+        Intent intent = new Intent(getApplicationContext(), SaveMemoActivity.class);
+        startActivity(intent);
+    }
 
-            try {
-                outputStream = openFileOutput(fileName, MODE_PRIVATE);
-                //에디트 박스에 저장된 스트링 데이터를 스트림에 기록함
-                outputStream.write(editText_TextArea.getText().toString().getBytes());
-                outputStream.close();
-
-                Toast.makeText(getApplicationContext(), "저장 성공", Toast.LENGTH_LONG).show();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    };
-
-    //파일 삭제 버튼 클릭처리
-    View.OnClickListener btnDeleteListener = new View.OnClickListener() {
-        public void onClick(View v) {
-            //Toast.makeText(getApplicationContext(), "삭제 버튼 클릭 테스트", Toast.LENGTH_LONG).show();
-            //해당 파일을 디스크 상에서 삭제, true 리턴 시 삭제 성공
-            boolean bDel = deleteFile(fileName);
-            if (bDel)
-                Toast.makeText(getApplicationContext(), "메모 삭제 완료", Toast.LENGTH_LONG).show();
-            else
-                Toast.makeText(getApplicationContext(), "메모 삭제 실패", Toast.LENGTH_LONG).show();
-        }
-    };
-
-    //백버튼 두번 연속 입력으로 종료 처리
     @Override
-    public void onBackPressed() {
-        if (System.currentTimeMillis() - backPressTime >= 2000) {
-            backPressTime = System.currentTimeMillis();
-            Toast.makeText(getApplicationContext(), "백(Back) 버튼을 한 번 더 누르면 종료", Toast.LENGTH_LONG).show();
-        } else if (System.currentTimeMillis() - backPressTime < 2000)
-            finish();
+    protected void onStart() {
+        users = AppDatabase.getInstance(this).userDao().getAll();
+        adapter.addItems((ArrayList) users);
+        super.onStart();
     }
 }
