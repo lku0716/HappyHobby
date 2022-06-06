@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/detailImage"
+        android:id="@+id/image"
         android:layout_width="323dp"
         android:layout_height="222dp"
         android:layout_marginTop="32dp"
@@ -39,6 +39,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/detailTitle"
         tools:srcCompat="@drawable/ic_gallery" />
+
 
     <EditText
         android:id="@+id/detailDes"
@@ -55,7 +56,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailImage"
+        app:layout_constraintTop_toBottomOf="@+id/image"
         app:layout_constraintVertical_bias="1.0" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
