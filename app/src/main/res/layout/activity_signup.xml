@@ -25,13 +25,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="2dp"
-        android:layout_marginRight="24dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/box_id"
         android:ems="10"
         android:gravity="center"
         android:hint="이름"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
+        android:textColorHint="@color/login_color"
         app:layout_constraintBottom_toTopOf="@+id/join_email"
         app:layout_constraintEnd_toEndOf="@+id/check_button" />
 
@@ -45,6 +46,8 @@
         android:gravity="center"
         android:hint="비밀번호"
         android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textColorHint="@color/login_color"
         app:layout_constraintBottom_toTopOf="@+id/join_pwck"
         app:layout_constraintStart_toStartOf="@+id/join_email" />
 
@@ -58,6 +61,8 @@
         android:gravity="center"
         android:hint="비밀번호 확인"
         android:inputType="textPassword"
+        android:textColor="@color/black"
+        android:textColorHint="@color/login_color"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="@+id/join_password" />
 
@@ -66,25 +71,27 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
-        android:layout_marginBottom="24dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/box_id"
         android:ems="10"
         android:gravity="center"
         android:hint="이메일"
         android:inputType="textEmailAddress"
+        android:textColor="@color/black"
+        android:textColorHint="@color/login_color"
         app:layout_constraintBottom_toTopOf="@+id/join_password"
         app:layout_constraintEnd_toStartOf="@+id/check_button"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/join_name" />
 
     <Button
         android:id="@+id/check_button"
+        style="@style/defaultButton"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_marginEnd="97dp"
         android:layout_marginRight="97dp"
         android:background="@drawable/box_login"
-        style="@style/defaultButton"
         android:text="확인"
         app:layout_constraintBaseline_toBaselineOf="@+id/join_email"
         app:layout_constraintEnd_toEndOf="parent" />

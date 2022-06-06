@@ -50,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
         View view = inflater.inflate(R.layout.activity_save_memo, null);
 
 
-        ImageView image = (ImageView) findViewById(R.id.image);
+        ImageView image = (ImageView) view.findViewById(R.id.image);
 
 
         // 수정
